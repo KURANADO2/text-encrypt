@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true" scanPeriod="10 seconds">
+
+    <!-- 控制台 -->
+    <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>
+                [%d{yyyy-MM-dd HH:mm:ss:SSS} %highlight(%-5p) %logger{20}.%M\(%F:%L\) %X{X-B3-TraceId:-},%X{X-B3-SpanId:-}] %msg%n
+            </pattern>
+            <charset>UTF-8</charset>
+        </encoder>
+        <!-- Only log level DEBUG and above -->
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>DEBUG</level>
+        </filter>
+    </appender>
+
+    <logger name="org.apache.kafka" level="WARN" additivity="true"/>
+    <logger name="org.springframework" level="WARN" additivity="true"/>
+    <logger name="ch.qos" level="WARN" additivity="true"/>
+    <logger name="org.mybatis" level="WARN" additivity="true"/>
+    <logger name="org.hibernate" level="WARN" additivity="true"/>
+    <logger name="org.quartz" level="WARN" additivity="true"/>
+    <logger name="org.apache.http" level="WARN" additivity="true"/>
+    <logger name="com.netflix.discovery" level="WARN" additivity="true"/>
+    <logger name="com.github.tobato.fastdfs" level="WARN" additivity="true"/>
+    <logger name="org.apache.commons.beanutils" level="WARN" additivity="true"/>
+    <logger name="com.ctrip.framework.apollo" level="WARN" additivity="true"/>
+    <logger name="com.amazonaws" level="WARN" additivity="true"/>
+    <logger name="com.ctrip.framework.apollo.internals.RemoteConfigLongPollService.doLongPollingRefresh" level="ERROR" additivity="true"/>
+    <logger name="com.ctrip.framework.apollo.internals.RemoteConfigRepository.loadApolloConfig" level="ERROR" additivity="true"/>
+    <logger name="org.apache.http" level="WARN" additivity="true"/>
+    <logger name="io.netty" level="WARN" additivity="true"/>
+    <logger name="io.lettuce" level="WARN" additivity="true"/>
+    <logger name="io.undertow.request" level="WARN" additivity="true"/>
+    <logger name="com.alibaba.nacos.client" level="WARN" additivity="true"/>
+    <logger name="com.alibaba.nacos.common" level="WARN" additivity="true"/>
+    <logger name="com.baomidou" level="WARN" additivity="true"/>
+    <logger name="com.aliyun" level="WARN" additivity="true"/>
+    <logger name="com.kuranado.storage" level="WARN" additivity="true"/>
+    <!-- See Also: https://stackoverflow.com/questions/60001034/how-to-remove-spring-data-customconversions-warnings-from-application-startup -->
+    <logger name="org.springframework.data.convert.CustomConversions" level="ERROR" additivity="true"/>
+    <logger name="org.elasticsearch.client" level="WARN" additivity="true"/>
+    <logger name="io.github.resilience4j" level="WARN" additivity="true"/>
+    <logger name="com.ulisesbocchio" level="WARN" additivity="true"/>
+
+    <root level="DEBUG">
+        <appender-ref ref="console"/>
+    </root>
+
+</configuration>

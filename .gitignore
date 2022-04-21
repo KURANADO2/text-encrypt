@@ -1,0 +1,7 @@
+.idea
+*.iml
+target/
+.DS_Store
+*.versionsBackup
+logging.path_IS_UNDEFINED
+nacos_config_export_*
